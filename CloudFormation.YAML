@@ -30,7 +30,3 @@ Resources:
           AssignPublicIp: ENABLED
           Subnets: [subnet-035e3ff7c26ab4421]
           SecurityGroups: [sg-040fc209e69bb5130]
-          Subnets:
-          - !Ref SubnetId
-          SecurityGroups:
-          - !Ref SecurityGroupId
