@@ -28,5 +28,7 @@ Resources:
       NetworkConfiguration:
         AwsvpcConfiguration:
           AssignPublicIp: ENABLED
-          Subnets: [subnet-xxxxxx]  # Reemplaza con subnet pública
-          SecurityGroups: [sg-xxxxxx]  # Reemplaza con SG que permita puerto 80
+          Subnets:
+          - !Ref SubnetId
+          SecurityGroups:
+          - !Ref SecurityGroupId
