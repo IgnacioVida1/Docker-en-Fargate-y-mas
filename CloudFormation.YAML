@@ -6,15 +6,15 @@ Resources:
   MyTaskDefinition:
     Type: AWS::ECS::TaskDefinition
     Properties:
-      Family: crud-api-task
+      Family: api-students-task
       Cpu: '256'
       Memory: '512'
       NetworkMode: awsvpc
       RequiresCompatibilities: [FARGATE]
-      ExecutionRoleArn: arn:aws:iam::478701513931:role/LabRole
+      ExecutionRoleArn: arn:aws:iam::218543369212:role/LabRole
       ContainerDefinitions:
         - Name: crud-api
-          Image: 478701513931.dkr.ecr.us-east-1.amazonaws.com/crud-api:latest
+          Image: 218543369212.dkr.ecr.us-east-1.amazonaws.com/api-students:latest
           PortMappings:
             - ContainerPort: 80
 
@@ -28,6 +28,8 @@ Resources:
       NetworkConfiguration:
         AwsvpcConfiguration:
           AssignPublicIp: ENABLED
+          Subnets: [subnet-035e3ff7c26ab4421]
+          SecurityGroups: [sg-040fc209e69bb5130]
           Subnets:
           - !Ref SubnetId
           SecurityGroups:
