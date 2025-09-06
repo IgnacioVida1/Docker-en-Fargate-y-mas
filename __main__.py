@@ -3,12 +3,12 @@
 import pulumi
 import pulumi_aws as aws
 
-default_vpc = aws.ec2.get_vpc(default=True)
-subnets = aws.ec2.get_subnets(filters=[{"name": "vpc-id", "values": [default_vpc.id]}])
+Vpc_Id = vpc-0eb91d56cab4a9114
+Subnet_Id = [subnet-0cd04a0321ba04cb9]
 
 sg = aws.ec2.SecurityGroup("api-students-sg",
     description="Permitir entrada en puerto 8000",
-    vpc_id=default_vpc.id,
+    vpc_id=Vpc_Id
     ingress=[{
         "protocol": "tcp",
         "from_port": 8000,
@@ -53,7 +53,7 @@ service = aws.ecs.Service("api-students-service",
     launch_type="FARGATE",
     network_configuration={
         "assign_public_ip": True,
-        "subnets": subnets.ids,
+        "subnets": Subnet_Id,
         "security_groups": [sg.id],
     },
     opts=pulumi.ResourceOptions(depends_on=[task_definition])
