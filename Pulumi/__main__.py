@@ -8,7 +8,7 @@ Subnet_Id = ["subnet-0cd04a0321ba04cb9"]
 
 sg = aws.ec2.SecurityGroup("api-students-sg",
     description="Permitir entrada en puerto 8000",
-    vpc_id=Vpc_Id
+    vpc_id=Vpc_Id,
     ingress=[{
         "protocol": "tcp",
         "from_port": 8000,
