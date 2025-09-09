@@ -3,8 +3,8 @@
 import pulumi
 import pulumi_aws as aws
 
-Vpc_Id = vpc-0eb91d56cab4a9114
-Subnet_Id = [subnet-0cd04a0321ba04cb9]
+Vpc_Id = "vpc-0eb91d56cab4a9114"
+Subnet_Id = ["subnet-0cd04a0321ba04cb9"]
 
 sg = aws.ec2.SecurityGroup("api-students-sg",
     description="Permitir entrada en puerto 8000",
