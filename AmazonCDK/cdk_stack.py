@@ -26,7 +26,7 @@ class StudentsApiStack(Stack):
         task_definition.add_container("StudentsContainer",
             image=ecs.ContainerImage.from_registry(
                 "218543369212.dkr.ecr.us-east-1.amazonaws.com/api-students:latest"),
-            port_mappings=[ecs.PortMapping(container_port=80)]
+            port_mappings=[ecs.PortMapping(container_port=8000)]
         )
         Subnet = [ec2.Subnet.from_subnet_id(self, "Subnet1", "subnet-0cd04a0321ba04cb9")]
         ecs.FargateService(
