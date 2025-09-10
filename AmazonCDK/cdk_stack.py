@@ -28,7 +28,7 @@ class StudentsApiStack(Stack):
                 "218543369212.dkr.ecr.us-east-1.amazonaws.com/api-students:latest"),
             port_mappings=[ecs.PortMapping(container_port=8000)]
         )
-        Subnet = [ec2.Subnet.from_subnet_id(self, "Subnet1", "subnet-0cd04a0321ba04cb9")]
+        Subnet = [ec2.Subnet.from_subnet_id(self, "Subnet1", "subnet-05114a9f87a07611c")]
         ecs.FargateService(
             self, "FargateService",
             cluster=cluster,
